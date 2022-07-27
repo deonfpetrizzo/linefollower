@@ -39,7 +39,8 @@ void run() {
 void handleIntersection(char dir) {
   if (dir == 'S') drivetrain.drive(LARGE_STEP, dir);
   else if (dir == 'B') dir = 'R';
-  else {
+  
+  if (dir != 'S') {
     drivetrain.drive(4, dir);
     do {
       drivetrain.drive(-1, dir);
