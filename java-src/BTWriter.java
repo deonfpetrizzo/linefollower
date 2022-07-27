@@ -15,13 +15,13 @@ public class BTWriter {
 			public void run() {
 				try {
 					StreamConnection connection = (StreamConnection) Connector.open(HC05_URL);
-			        PrintWriter out = new PrintWriter(connection.openOutputStream());
+					PrintWriter out = new PrintWriter(connection.openOutputStream());
 
-			        out.write(outputString);
-			        out.close();
-			        connection.close();
-			    }
-			    catch (Exception e) {}
+					out.write(outputString);
+					out.close();
+					connection.close();
+				}
+			    	catch (Exception e) {}
 			}
 		};
 		thread.start();
