@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RobotCarController">
+   <children>
+      <Circle fx:id="boundaryCircle" fill="#d7d7d7" layoutX="514.0" layoutY="150.0" radius="100.0" stroke="#d7d7d7" strokeType="INSIDE" />
+      <Circle fx:id="movingCircle" fill="#767e86" layoutX="514.0" layoutY="150.0" onMouseDragged="#moveJoystick" onMouseReleased="#releaseJoystick" radius="50.0" stroke="#767e86" strokeType="INSIDE" />
+      <GridPane layoutX="15.0" layoutY="14.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="kp" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label text="ki" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label text="kd" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label text="speed" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+            <Slider fx:id="kpSlider" minorTickCount="4" onMouseDragged="#readSlider" onMouseReleased="#releaseSlider" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Slider fx:id="kiSlider" majorTickUnit="0.5" max="2.0" minorTickCount="4" onMouseDragged="#readSlider" onMouseReleased="#releaseSlider" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Slider fx:id="kdSlider" majorTickUnit="10.0" max="50.0" minorTickCount="4" onMouseDragged="#readSlider" onMouseReleased="#releaseSlider" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Slider fx:id="speedSlider" blockIncrement="20.0" majorTickUnit="50.0" max="255.0" minorTickCount="4" onMouseDragged="#readSlider" onMouseReleased="#releaseSlider" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <TextArea fx:id="display" editable="false" layoutX="254.0" layoutY="34.0" opacity="0.7" prefHeight="200.0" prefWidth="150.0">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font></TextArea>
+      <TextField fx:id="dataOut" editable="false" layoutX="12.0" layoutY="255.0" opacity="0.7" prefHeight="31.0" prefWidth="392.0" />
+   </children>
+</AnchorPane>
