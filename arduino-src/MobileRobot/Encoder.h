@@ -21,7 +21,7 @@ class Encoder {
 			pinMode(sensorPin, INPUT);
 		}
 
-		//Returns the number of  recorded as the encoder disk rotates
+		//Returns the number of pulses recorded as the encoder disk rotates
 		byte cntPulses() {
 			static bool prevReading = true;
 			bool currReading = digitalRead(sensorPin);
